@@ -1,5 +1,8 @@
 # MLTSAProject
 
+# Purpose
+This is the final project for the course Machine Learning for Time Series Analysis (MLSTA 667) at the University of Delaware. The course instructor is Dr. Federica Bianco. The team members associated with this project are Jonathan Clifford, Desiderio Pilla, and Ramiz Qudsi. All are graduate students at UD.
+
 ## Roles
  * Jonathan Clifford, @takao8, jcliff@udel.edu, Data/Literature Manager
  * Desiderio Pilla, @DesiPilla, dmpilla@udel.edu, Methodology Manager
