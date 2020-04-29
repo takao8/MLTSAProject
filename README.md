@@ -76,3 +76,7 @@ We use the NOAA dataset to analyse the effect of variation in weather on the ene
 To measure the performance of the Prophet model, a binary classification problem will be overlayed on top of the underlying forecasting problem. For all points in the historical energy usage data, a binary rule will be added stating whether or not the model prediction fell within 5% of the actual energy usage. This set of binary classifiers will then be used to plot an ROC curve and more in-depthly analyze the performance of the Prophet model.
 
 In addition to the Prophet model, we will be implementing neural networks.  Using our principal components as described above, we will first implement a basic feedforward network, followed by a recurrent neural network, and compare their results to the Prophet model.
+
+# Deliverable
+The output for this project is a model that will be used to predict NEPOOL energy usage. This model will forecast the next 1 - 6 months of energy usage in the New England region. 
+
