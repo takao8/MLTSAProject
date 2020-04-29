@@ -1,4 +1,4 @@
-# MLTSAProject
+# Forecasting New England Energy Consumption
 
 # Purpose
 This is the final project for the course Machine Learning for Time Series Analysis (MLSTA 667) at the University of Delaware. The course instructor is Dr. Federica Bianco. The team members associated with this project are Jonathan Clifford, Desiderio Pilla, and Ramiz Qudsi. All are graduate students at UD.
