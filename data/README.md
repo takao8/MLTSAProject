@@ -27,8 +27,3 @@ This repository contains the following data files:
  * `data_st.csv`
 
     This is a standardized version of `data.csv`. The timestamp is not included in this dataset.
-
- * `trained_model_1.pickle`
-
-    This is a preliminary trainded model created using Facebook's Prophet.
-
