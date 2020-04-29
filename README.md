@@ -80,3 +80,7 @@ In addition to the Prophet model, we will be implementing neural networks.  Usin
 # Deliverable
 The output for this project is a model that will be used to predict NEPOOL energy usage. This model will forecast the next 1 - 6 months of energy usage in the New England region. 
 
+# Bibliography
+[1] B. Yildiz, J.I. Bilbao, A.B. Sproul, "A review and analysis of regression and machine learning models on commercial building electricity load forecasting," in IEEE Transactions on Power Systems, vol. 73, pp. 1104-1122, June 2017.
+
+[2] D. C. Park, M. A. El-Sharkawi, R. J. Marks, L. E. Atlas and M. J. Damborg, "Electric load forecasting using an artificial neural network," in IEEE Transactions on Power Systems, vol. 6, no. 2, pp. 442-449, May 1991.
