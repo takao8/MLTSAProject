@@ -1,5 +1,11 @@
 # MLTSAProject
 
+## Roles
+ * Jonathan Clifford, @takao8, jcliff@udel.edu, Data/Literature Manager
+ * Desiderio Pilla, @DesiPilla, dmpilla@udel.edu, Methodology Manager
+ * Ramiz Qudsi, @ahmadryan, ahmadr@udel.edu, Communication/Visualization Manager
+
+
 # Abstract
 Energy consumption forecasting is vitally important for energy companies and government agencies to properly hedge their assets and control prices.  In this project, we forecast the New England region’s NEPOOL energy consumption with Boston’s historical weather data from 2000 through 2019 using machine learning methods in an attempt to accurately predict New England energy consumption in the next 1-6 months.  In the first step we plan to implement Facebook's Prophet package using a decomposable time series model.  In the next step, we will create an alternative model with recurrent neural networks. The results from both models will be compared statistically.
 
