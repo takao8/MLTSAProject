@@ -20,11 +20,17 @@ Two datasets are used in this project. The following table highlights the shape 
 |---|---|---|---|---|---|---|
 |nepool|https://www.iso-ne.com/isoexpress/web/reports/load-and-demand/-/tree/net-ener-peak-load |171,562|171,562|18|2|All floats|
 |weather_noaa|https://www.ncdc.noaa.gov/cdo-web/ |299,952|299,952|124|9|All floats|
-**Table 1: High level description of datasets.**
+**Table 1:** High level description of datasets.
 
 The primary dataset used in this project is the Net energy peak and load by source for NEPOOL. In this dataset, load is the amount of energy that is consumed at a single point, expressed in Megawatt-hours. This dataset covers the time interval from January 1st, 2000 to July 29th, 2019. Figure 1 shows a typical energy demand for the year 2015. The other relevant feature in this dataset is the Heat Index, which combines historical temperature and humidity data at Boston Logan International Airport, measured in degrees Fahrenheit. Figure 2 shows the variation in energy consumption for the area for the period of 50 days starting on 21st of February, 2001.
 
+![energy demand for 2015](figures/energy_demand_2015.png)
 
+**Figure 1:** A time series sample of Energy demand for year 2015 for the New England area.
+
+![snapshot of nepool.describe()](figures/nepool_data_description.png)
+
+**Table 2:** Snapshot of `nepool.describe()`
 
 The second dataset includes the historical weather data for the Boston area. This data was acquired from Climate Data Online (CDO), presented by NOAA. The data was acquired using the following criteria:
  * Weather Observation Type/Dataset: Normals Hourly
@@ -43,3 +49,10 @@ Due to limits on the size of datasets that can be ordered at a time, two separat
  * Sea Level Pressure (inches)
  * Wet Bulb Temperature (°F)
  * Wind Speed (mph)
+
+![Correlation between energy consumption and Heat Index of Boston for the period between 2001-02-21and 2002-04-13](figures/hid_energy_usage.png)
+
+**Figure 2:** Correlation between energy consumption and Heat Index of Boston for the period between 2001-02-21and 2002-04-13
+
+![Snapshot of weather_noaa.describe()](figures/noaa_data_description.png)
+**Table 3:** Snapshot of `weather_noaa.describe()`
