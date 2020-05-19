@@ -1,10 +1,10 @@
 ## MLTSA Project Code
 This repository contains the following code:
- * `NEPOOL_Analaysis_with_Prophet.ipynb
+ * `NEPOOL_Analaysis_with_Prophet.ipynb`
  
  Code using Facebook's Prophet to forecast load data.
     
- * `NEPOOL_Data_Exploration.ipynb
+ * `NEPOOL_Data_Exploration.ipynb`
  
  Code used to perform the initial data exploration when the NEPOOL dataset was obtained.
  
