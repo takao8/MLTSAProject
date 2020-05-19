@@ -14,4 +14,4 @@ This repository contains the following code:
  
  * 	`feedforward_net_exploration.ipynb`
  
-    Code for forecasting load data using feedforward neural networks.
+    Code for forecasting load data using feedforward neural networks and to perform other data exploration.
