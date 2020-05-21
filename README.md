@@ -192,6 +192,37 @@ Further work needs to be done to further verify the power of these models.  In p
 
 
 # Bibliography
-[1] B. Yildiz, J.I. Bilbao, A.B. Sproul, "A review and analysis of regression and machine learning models on commercial building electricity load forecasting," in IEEE Transactions on Power Systems, vol. 73, pp. 1104-1122, June 2017.
+[1] B. E. Psiloglou, C. Giannakopoulos, S. Majithia, “Comparison of energy load demand and thermal comfort levels in Athens, Greece and London, UK”, 2nd PALENC Conference and 28th AIVC Conference on Building Low Energy Cooling and Advanced Ventilation Technologies in the 21st Century, September 2007.
 
-[2] D. C. Park, M. A. El-Sharkawi, R. J. Marks, L. E. Atlas and M. J. Damborg, "Electric load forecasting using an artificial neural network," in IEEE Transactions on Power Systems, vol. 6, no. 2, pp. 442-449, May 1991.
+[2] Eisa Almeshaiei a, Hassan Soltan, “A methodology for Electric Power Load Forecasting”, Alexandria Engineering Journal vol.  50, pp. 137–144, July 2011.
+
+[3] Y. Ohtsuka, T. Oga, K. Kakamu, “Forecasting electricity demand in Japan: a bayesian spatial autoregressive ARMA approach,” Computational Statistics and Data Analysis, vol. 54, pp. 2721–2735,  2010.
+
+[4] O. Valenzuela, I. Rojas, F. Rojas, H. Pomares, L.J. Herrera, A.Guillen, L. Marquez, M. Pasadas, “Hybridization of intelligent techniques and ARIMA models for time series prediction,” Fuzzy Sets and Systems, vol. 159, pp. 821–845, 2008.
+
+[5] L.F. Amaral, R.C. Souza, M. Stevenson, “A smooth transition periodic autoregressive (STPAR) model for short-term load forecasting,” International Journal of Forecasting, vol. 24, pp. 603–615, 2008.
+
+[6] J.V. Ringwood, D. Bofelli, F.T. Murray, “Forecasting electricity demand on short, medium and long time scales using neural networks,” Journal of Intelligent and Robotic Systems, vol. 31, pp. 129–147, 2001.
+
+[7] H. Wang, B.-S. Li, X.-Y. Han, D.-L. Wang, H. Jin, “Study of neural networks for electric power load forecasting”, in: J. Wang et al. (Eds.), ISNN 2006, LNCS 3972, Springer-Verlag, pp.
+1277–1283, 2006.
+
+[8] D.-X. Niu, Q. Wang, J.-C. Li, “Short term load forecasting model based on support vector machine,” in: D.S. Yeung et al. (Eds.), ICMLC 2005, LNAI 3930, Springer-Verlag, pp. 880–888, 2006.
+
+[9] D. Niu, Y. Wang, D.D. Wu, “Power load forecasting using support vector machine and ant colony optimization,” Expert Systems with Applications, vol. 37, pp. 2531–2539, 2010.
+
+[10] B. Yildiz, J.I. Bilbao, A.B. Sproul, "A review and analysis of regression and machine learning models on commercial building electricity load forecasting," in IEEE Transactions on Power Systems, vol. 73, pp. 1104-1122, June 2017.
+
+[11] R. Weron, “Modeling and forecasting electricity loads and prices: a statistical approach,” John Wiley & Sons Ltd., England, 2006.
+
+[12] R. G. Steadman, “The Assessment of Sultriness. Par I: A Temperature-Humidity Index Based on Human Physiology and Clothing Science”, Journal of  Applied Meteorology, vol. 18, pp. 861-873., 1979.
+
+[13] D. C. Park, M. A. El-Sharkawi, R. J. Marks, L. E. Atlas and M. J. Damborg, "Electric load forecasting using an artificial neural network," in IEEE Transactions on Power Systems, vol. 6, no. 2, pp. 442-449, May 1991.
+
+[14] Dupond, Samuel, "A thorough review on the current advance of neural network structures". Annual Reviews in Control, vol. 14, pp. 200–230, 2019.
+
+[15] Frank, Patrick. (2010). Refereed Papers: Uncertainty in the Global Average Surface Air Temperature Index: A Representative Lower Limit. Energy & Environment. 21. 10.1260/0958-305X.21.8.969.
+
+[16] Bailey, H. (1966). The Mean Annual Range and Standard Deviation as Measures of Dispersion of Temperature around the Annual Mean. Geografiska Annaler. Series A, Physical Geography, 48(4), 183-194. doi:10.2307/520501
+[17] 
+https://en.wikipedia.org/wiki/Moss_Landing_Power_Plant
