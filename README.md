@@ -166,6 +166,11 @@ Due to limited cross-validation (described in Methodology), difficulty was had i
 
 </br>
 
+## Recurrent Neural Network
+
+We also made an attempt to use a recurrent neural network [14]. The algorithm employed 3 LSTM and 2 Dense layers. Each layer, except for the last, was followed by a 20% dropout rate and all LSTM layers had batch normalization. The model was trained on 45 parameters, as discussed in the previous subsection. We observed that although the training loss stabilized and was below the validation loss (Figure E.1), the trained model failed to adequately forecast future energy demand (Figure E.2). Forecasting performed in cross-validation yielded a slightly better result (Figure E.3). However, the improvement was not enough to warrant an in depth statistical analysis of the model and its results.
+
+
 # Deliverable
 The output for this project is a model that will be used to predict NEPOOL energy usage. This model will forecast the next 1 - 6 months of energy usage in the New England region. 
 
