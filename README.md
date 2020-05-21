@@ -296,3 +296,24 @@ https://en.wikipedia.org/wiki/Moss_Landing_Power_Plant
 ![](figures/prophet3/joint_hex3.png)
 
 **Figure C.5:** The joint plot shows the actual energy loads versus the energy load predictions. The marginal histograms show the distributions of the energy loads. The correlation is linear for most of the range, tailing upwards at the right end of the plot. This implies that the additive model tended to underpredict larger energy demands.
+
+## Appendix D: Neural Network Results
+
+![](figures/ffnn/loss_curve.png)
+
+**Figure D.1:** Plot of the training and validation MSE decreasing as epochs continue. Training data will continue to decrease as the model overfits the training data, so minimization of external validation data is necessary to properly fit the model. Note for our purposes that training past 1000 epochs was unobtainable due to computational limits, thus it was common to need to stop before the limit, even if the validation shows potential signs of further decrease.
+
+
+![](figures/ffnn/residuals_hist.png)
+
+**Figure D.2:** Histogram of residuals of resulting fits in the feedforward neural network. Note a heavy right side on the histogram, indicative of the model’s tendency to overpredict results, explaining the resulting high median.
+
+![](figures/ffnn/predictions_june.png)
+
+**Figure D.3:**  Line plot showing the true series (black) overlayed on the predicted series (red) over June, 2011. Previous models notably had a tendency to overfit on weekends--the current model overfits arbitrarily.  No explanation besides a lack of a good fit explain why this occurs in the model.
+
+
+![](figures/ffnn/predictions_march.png)
+
+**Figure D.4:**  Similar to Figure D.3, over March 2011. This plot shows the model accurately forecasts lower energy demand on weekends (March 19th-20th), thus cannot fully explain its tendency to overpredict the model.
+
