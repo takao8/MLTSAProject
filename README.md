@@ -151,6 +151,21 @@ Another good sign from this model was that its prediction error stayed relativel
 
 </br>
 
+
+## Feefforward Neural Network
+
+An analysis of the feedforward neural network’s output shows promise but fundamental errors in its predictive power. Viewing the residual plot in Figure 6 shows the nature of the issue–although producing a favorable MAPE, an instability emerges in the MAPE rolling average. This portrays an inconsistency in the accuracy. Overall, the model returned an hourly MAPE of 9.12% over 3 months.
+
+![](figures/ff_horizon_mape.png)
+
+**Figure 6:** The absolute percent error of each observation over a timespan of 2 years with the feedforward neural network model, similar to Figure 5.  
+
+Although stated with uncertainty, through analysis of the output of the model, the nature of the neural network’s inaccuracy stems from a tendency to overpredict the true values (see Appendix D.2). Analysis of the unnormalized residuals shows a median of +200.03 MWh, further confirming its tendency to overpredict. Previous versions of this model overpredicted due to incorrectly incorporating weekend behavior; this model doesn’t exhibit such behavior, yet overpredicts values on a seemingly arbitrary basis (see Figures D.3, D.4), which is likely explained by poor fitting.
+
+Due to limited cross-validation (described in Methodology), difficulty was had in properly tuning the feedforward net. This likely produced the unstable MAPE shown in Figure 6.  Not only could the model’s hyperparameters not be tuned, training was difficult after 1000 epochs, even though the model could potentially train further (see Figure D.1).  Further tuning and effective cross-validation will need to be performed before appropriate testing and evaluation can be done on the neural network’s forecasting power for energy demand.
+
+</br>
+
 # Deliverable
 The output for this project is a model that will be used to predict NEPOOL energy usage. This model will forecast the next 1 - 6 months of energy usage in the New England region. 
 
