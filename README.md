@@ -317,3 +317,18 @@ https://en.wikipedia.org/wiki/Moss_Landing_Power_Plant
 
 **Figure D.4:**  Similar to Figure D.3, over March 2011. This plot shows the model accurately forecasts lower energy demand on weekends (March 19th-20th), thus cannot fully explain its tendency to overpredict the model.
 
+## Appendix E: Recurrent Neural Network Results
+
+
+![](figures/rnn/valid_loss_v2.png)
+
+**Figure E.1:** Plot of loss rate for training and validation sets for an RNN.
+
+![](figures/rnn/prediction_true_v4.png)
+
+**Figure E.2:** Plot of predicted and true values for load (standardized) based on the RNN model using future dataset.		
+
+
+![](figures/rnn/train_predict_v4.png)
+
+**Figure E.3:** Plot of predicted and true values for load (standardized) based on the RNN model using a subset of data from the training set.
