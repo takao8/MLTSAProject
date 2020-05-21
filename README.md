@@ -226,3 +226,41 @@ Further work needs to be done to further verify the power of these models.  In p
 [16] Bailey, H. (1966). The Mean Annual Range and Standard Deviation as Measures of Dispersion of Temperature around the Annual Mean. Geografiska Annaler. Series A, Physical Geography, 48(4), 183-194. doi:10.2307/520501
 [17] 
 https://en.wikipedia.org/wiki/Moss_Landing_Power_Plant
+
+
+# Appendices
+
+## Appendix A: Data Exploration Figures
+
+![](figures/year_seasonal_load_scatter_v6.png)
+
+**Figure A.1:** An overview of load corresponding to 19 years data we used in the project. Energy consumption is usually higher in winter and summer compared to the other two seasons. Summer though exhibits a slightly different behaviour compared to other seasons as the peaks are much sharper and the total load is also significantly higher than winter resulting in higher variance of the data which might help explain the higher error in load prediction as reported in  Results. Bottom panel shows the same data though with rolling mean for a period of around 4 days. Please note the paucity of data in the initial years, specially upto 2006 which gives an impression of varying 𝞪 (transparency parameter) while plotting. This is only because of missing data though cadence is the same as any other period.
+
+![](figures/Week_days_ends_v4.png)
+
+**Figure A.2 :** Plot of Boston heat index and energy consumption for the New England area. Blue dots correspond to weekdays whereas red dots correspond to weekends. Energy consumption during the weekend is slightly lower than those during weekdays for all seasons. The difference of average energy consumption (shown by green dots) during weekdays and weekends is always positive and shows a log-linear relation with heat index. Please note the vertical stripe like feature of the data points is the consequence of digitization of data as heat index is recorded only as integers.
+
+
+![](figures/psd_v4.png)
+
+**Figure A.3:** Power spectral density of load during different seasons for the New England area. The figure shows peaks along expected periods of 24 Hrs (dotted green line) and a small broad peak centered around frequency corresponding to 7 days (dash-dot black line). Broadness of the peak at week long frequency can be attributed to the drop in power consumption over weekends as compared to a weekday. There are other peaks present at frequency corresponding to 8 hr, which relates to the usual 8 hr long office hours in the corporate sector.
+
+![](figures/daily_summer.png)
+
+**Figure A.4:** Ensemble of daily oscillations in the month of July of the energy demand data for 9 years.  Daily oscillations in the summer are distinguishable from the winter by their single hump--a steady increase through the day, peaking around 5PM, then steadily decreasing into the night.
+
+
+![](figures/daily_winter.png)
+
+**Figure A.5:** Similar to figure A.4, except during the winter.  Note that the daily oscillations are now defined by a double hump: an increase through the early hours of the day, slightly decreasing until 3PM, then spiking sharply at 7PM until decreasing through the night.
+
+
+![](figures/weekly_seasonality.png)
+
+**Figure A.6:** Behavior of energy demand in May over 19 years of data.  Energy demand over the weekends tends to be lower due to industry and commercial buildings shutting down.  Therefore, a typical weekly oscillation will show energy demand higher during the weekdays and lower in the weekends.  Although there are exceptions to this behavior, the average, as shown in the dotted black line, illustrates this trend to be true.
+
+
+![](figures/holiday_seasonality.png)
+
+**Figure A.7:** Behavior of the energy demand for Nepool around July 4th.  Typically, holidays act identical to weekends, as businesses and industry close down.
+
