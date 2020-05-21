@@ -22,17 +22,8 @@ For our study, we used two models: Facebook’s Prophet (FP), which is based on 
 
 
 # Data
-Data
 
-Two datasets are used in this project. The following table highlights the shape and types of data used in the datasets.
-|Dataset name|URL|Number of rows|Number of valid rows (not NaN on relevant columns)|Number of columns|Number of relevant columns|Data type for each relevant column|
-|---|---|---|---|---|---|---|
-|nepool|https://www.iso-ne.com/isoexpress/web/reports/load-and-demand/-/tree/net-ener-peak-load |171,562|171,562|18|2|All floats|
-|weather_noaa|https://www.ncdc.noaa.gov/cdo-web/ |299,952|299,952|124|9|All floats|
-
-**Table 1:** High level description of datasets.
-
-The primary dataset used in this project is the Net energy peak and load by source for NEPOOL. In this dataset, load is the amount of energy that is consumed at a single point, expressed in Megawatt-hours. This dataset covers the time interval from January 1st, 2000 to July 29th, 2019. Figure 1 shows a typical energy demand for the year 2015. The other relevant feature in this dataset is the Heat Index, which combines historical temperature and humidity data at Boston Logan International Airport, measured in degrees Fahrenheit. Figure 2 shows the variation in energy consumption for the area for the period of 50 days starting on 21st of February, 2001.
+The primary dataset used in this project is the net energy load by source for NEPOOL. This dataset was acquired from the ISO New England website and covers the time interval from January 1st, 2000 to July 29th, 2019, with a cadence of 1 hour for each observation. Figure 1 shows a typical energy demand for the year 2015. The other relevant feature in this dataset is the Heat Index (HI) [12], which combines historical temperature and humidity data at Boston Logan International Airport, measured in degrees celsius. Figure 2 shows the correlation between load and HI in Boston for the period between 2000 and 2019. The graph shows two populations during the winter months, which merge into one as  the HI increases. As expected, load increases as the HI increases (decreases) from the global minima point as people turn on their cooling (heating) systems.
 
 ![energy demand for 2015](figures/energy_demand_2015.png)
 
@@ -42,7 +33,9 @@ The primary dataset used in this project is the Net energy peak and load by sour
 
 **Table 2:** Snapshot of `nepool.describe()`
 
-The second dataset includes the historical weather data for the Boston area. This data was acquired from Climate Data Online (CDO), presented by NOAA. The data was acquired using the following criteria:
+</br>
+
+The second dataset includes historical weather data for the Boston area. This data originates from Climate Data Online (CDO), presented by NOAA. The data was acquired using the following criteria:
  * Weather Observation Type/Dataset: Normals Hourly
  * Date Range: 
    * 2000-01-01 00:00 to 2009-12-31 23:59
@@ -50,22 +43,30 @@ The second dataset includes the historical weather data for the Boston area. Thi
  * Search for: Stations
  * Search Term: WBAN:14739
 
-Due to limits on the size of datasets that can be ordered at a time, two separate datasets were requested and then concatenated together. The resulting dataset contained many different attributes relating to the hourly weather conditions over the time period covered by the NEPOOL dataset. From the subset of categories, the following nine were highlighted as relevant features to be used in this analysis:
- * Altimeter Setting (inches)
- * Dew Point Temperature (°F)
- * Dry Bulb Temperature (°F)
- * Precipitation (inches)
- * Relative Humidity (%)
- * Sea Level Pressure (inches)
- * Wet Bulb Temperature (°F)
- * Wind Speed (mph)
+Due to limits on the size of datasets that can be ordered at a time, two separate datasets were requested and then concatenated together. The resulting dataset contained many different attributes relating to the hourly weather conditions over the time period covered by the NEPOOL dataset.
 
 ![Correlation between energy consumption and Heat Index of Boston for the period between 2001-02-21and 2002-04-13](figures/hid_energy_usage.png)
 
-**Figure 2:** Correlation between energy consumption and Heat Index of Boston for the period between 2001-02-21and 2002-04-13
+**Figure 2:** Contour plot between energy consumption and Heat Index of Boston for 2000-2019.  Although showing evidence of two populations in the winter, they merge into one in the summer, dissuading the possibility of disjoint populations.
+
+
 
 ![Snapshot of weather_noaa.describe()](figures/noaa_data_description.png)
-**Table 3:** Snapshot of `weather_noaa.describe()`
+
+**Table 2:** Snapshot of `weather_noaa.describe()`
+
+
+|Dataset name|URL|Number of rows|Number of valid rows (not NaN on relevant columns)|Number of columns|Number of relevant columns|Data type for each relevant column|
+|---|---|---|---|---|---|---|
+|nepool|https://www.iso-ne.com/isoexpress/web/reports/load-and-demand/-/tree/net-ener-peak-load |171,562|171,562|18|2|All floats|
+|weather_noaa|https://www.ncdc.noaa.gov/cdo-web/ |299,952|299,952|124|9|All floats|
+
+**Table 3:** High level description of datasets.
+
+</br>
+
+
+
 
 # Methodology
 The Prophet package by Facebook will be the main tool utilized to complete this project. This model will optimize the parameters using a direct optimization approach.
