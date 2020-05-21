@@ -69,24 +69,37 @@ Due to limits on the size of datasets that can be ordered at a time, two separat
 
 
 # Methodology
-The Prophet package by Facebook will be the main tool utilized to complete this project. This model will optimize the parameters using a direct optimization approach.
+
+## Facebook Prophet
+
+The Prophet package by Facebook is one of the two tools utilized to complete this project. This model optimizes the parameters using a direct optimization approach.
+
 
 An initial exploration of the NEPOOL dataset suggests the presence of three significant seasonalities:
 1. **Yearly:** Because of various seasons over the period of a year, we observe a periodic rise and fall in the consumption of energy. The demand is higher in summer and winter, and lower in spring and autumn.
 2. **Weekly:** The typical work week is five days, and the weekend two days. There is a considerable difference in power usage during the off days compared to the work days, with energy consumption tending to be greater during business days than on the weekend.
 3. **Daily:** Initial analysis shows an increased demand in the morning and during the day. The energy load drops off at night time.
 
-These seasonalities will be considered in the model by implementing the specified seasonalities in the Prophet model.
+These seasonalities have been considered in the model by implementing the specified seasonalities in the Prophet implementation.
 
-Energy demands follow different patterns in the summer as in the winter. In the summer months, the energy load rises throughout the day, peaks in the evening, and then sharply drops at night. However, during the winter months the data exhibit a double peak. The energy load rises sharply in the morning, retracts during the afternoon, and then reaches a second, higher, peak in the evening before dropping at night. The spring and autumn months follow daily motions somewhere in between these two distributions. The Prophet model will also be trained to recognize these seasonalities.
+![](figures/daily_trend_heatmap.png)
 
-Another factor that must be considered is holidays. On a holiday, the energy demand more closely follows that of a weekend. The Prophet package has the built-in capability to recognize holidays in its model. This will be used to acknowledge the effect of holidays.
+**Figure 3:** Heatmap showing weekly averages of daily energy load from 2016-2018.  In this figure, the summer and winter seasonalities are clearly shown.  Note the smooth transition of daily seasonalities between summer and winter.
 
-We use the NOAA dataset to analyse the effect of variation in weather on the energy demand. Rather than use all available weather variables, a principal component analysis (PCA) will be conducted to decrease the number of features in the dataset. A subset of the PCA elements will be chosen so that the majority of the variability in the full NOAA dataset is accounted for while limiting the number of features used. These components will then be added as regressors to the Prophet model.
+</br>
+Energy demands follow different patterns in the summer as in the winter. In the summer months, energy load rises throughout the day, peaks in the evening, and then sharply drops at night. However, during the winter months the data exhibits a double peak. The energy load rises sharply in the morning, retracts during the afternoon, and then reaches a second, higher peak in the evening before dropping at night. The spring and autumn months follow daily motions somewhere in between these two distributions. The Prophet model has been trained to learn different daily seasonalities for days in different seasons.  (See Appendix A for more details)
 
-To measure the performance of the Prophet model, a binary classification problem will be overlayed on top of the underlying forecasting problem. For all points in the historical energy usage data, a binary rule will be added stating whether or not the model prediction fell within 5% of the actual energy usage. This set of binary classifiers will then be used to plot an ROC curve and more in-depthly analyze the performance of the Prophet model.
+Holidays must also be considered. On a holiday, the energy demand more closely follows that of a weekend. The Prophet package has the built-in capability to recognize holidays in its model, and has been implemented in the model as well.
 
-In addition to the Prophet model, we will be implementing neural networks.  Using our principal components as described above, we will first implement a basic feedforward network, followed by a recurrent neural network, and compare their results to the Prophet model.
+We used the NOAA dataset to analyze the effect of variation in weather on the energy demand. Rather than use all available weather variables, a principal component analysis (PCA) was conducted to decrease the number of features in the dataset (see Results for more details). The most relevant  components were added as regressors to the Prophet implementation.
+
+To measure the performance of the model, we compute the mean absolute percent error (MAPE) of its predictions:
+
+![](figures/mape_eqn.png)
+
+where *A<sub>t</sub>* is true load, *F<sub>t</sub>* is forecasted load, and *n* is the size of our test set. The objective is to minimize MAPE on the test set.
+
+
 
 # Deliverable
 The output for this project is a model that will be used to predict NEPOOL energy usage. This model will forecast the next 1 - 6 months of energy usage in the New England region. 
