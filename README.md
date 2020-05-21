@@ -269,3 +269,30 @@ https://en.wikipedia.org/wiki/Moss_Landing_Power_Plant
 ![](figures/pca_explained_variance.png)
 
 **Figure B.1:** The bar chart shows how much of the total variance in the original weather dataset is explained by each principal component. The first two components explain 97.65%, the first three explain 99.70%, and the first six explain 100%.
+
+
+## Appendix C: Additive Regression with Facebook's Prophet Results
+
+![](figures/prophet3/prophet3_predictions.png)
+
+**Figure C.1:** A high level view of the model’s forecast shows that the uncertainty does not grow over time. The seasonalities learned by the model are strong enough to maintain a tight confidence interval throughout the duration of the prediction period.
+
+![](figures/prophet3/prophet3_components.png)
+
+**Figure C.2:** These are the different components of the additive regression model. From top to bottom, right to left: daily spring/fall, daily summer, daily winter, quarterly, trend, holidays, weekly, yearly. Though the methodology behind Prophet’s optimization is a relatively “black box”, we can plot the different seasonality components of the trained model and explore what trends have been learned. By observing the above figures, some glaring observations can be made. First, the captured daily seasonality was vastly different between the summer months versus the winter and spring/fall months. This was expected, as we saw the winter months exhibit a “double peak” in energy load, while the summer months did not. The overall trend (top right figure) is not very telling; there appears to be a gradual decrease in energy consumption over the last 15 years, but the chart is noisy and comes after a few years of increasing demand. The yearly trend is very noisy and very likely overfit the training data. The fourier order is too high, even though this component was learned using Prophet’s default setting. This will have implications on the results and marks an area for future models to be improved.
+
+
+![](figures/prophet3/season_preds3.png)
+
+**Figure C.3:** A zoomed in look at the energy forecasts versus their actual values for the different seasons of the year. These plots show segments of the predictions in January, April, July, and October (listed from top to bottom), to get an idea of the yearly accuracy of the model. The best predictions came in the spring and fall months, while the least accurate predictions came in the summer months.The model was able to properly associate “double peaks” with the winter, spring, and fall months and a “single peak” with the summer months, but the amplitudes of the summer peaks were not predicted with as much precision.
+
+![](figures/prophet3/residuals3_hist.png)
+
+![](figures/prophet3/residuals3_compare.png)
+
+**Figure C.4:** A histogram of the residuals using the model (left), and a histogram comparing the residuals of the main model with a model that does not consider the weather features in its prediction-making (right). The distributions are both well-behaved and nearly identical. Note that 24 MWh is smaller than 0.2% of the mean hourly energy load.
+
+
+![](figures/prophet3/joint_hex3.png)
+
+**Figure C.5:** The joint plot shows the actual energy loads versus the energy load predictions. The marginal histograms show the distributions of the energy loads. The correlation is linear for most of the range, tailing upwards at the right end of the plot. This implies that the additive model tended to underpredict larger energy demands.
