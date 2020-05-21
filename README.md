@@ -127,6 +127,30 @@ It is also noteworthy which weather features were most represented in the PCA co
 **Figure 4:** The bar chart shows the weight attributed to each weather feature for the first two principal components. These components assign most of the weight to the three temperature features and relative humidity.
 
 
+
+## Additive Regression with Facebook Prophet
+
+A few different models were created before to tune the parameters of the Prophet implementation. An initial glance at predictions shows that the model was able to capture enough of the seasonality to make hourly forecasts without the confidence interval blowing up (Figure C.1).
+The mean absolute percent error (MAPE) of the model was acceptable for this model. Depending on the time period, the model was able to produce very accurate predictions. On the hourly level (the scale at which predictions are made), the model had a MAPE of 7.45%. However, across the 16 cross-validation periods, each of which forecasted 90 days of energy demand, the 3-month MAPE was much lower, at roughly 2.35%.
+
+|Hourly|Daily|Monthly|3 Months|
+|--|--|--|--|
+|7.45%|6.22%|3.97%|2.35%|
+
+**Table 3:** Results of the Additive regression model based on the granularity of the evaluation window.
+
+The reason for this can be seen by examining the residuals (Figure C.4). The model’s errors are well behaved; they follow a mostly normal distribution that is centered very close to 0. The median error was 23.88 MWh, which is less than 0.2% of the average energy load. With the error being mostly balanced, any under-estimated predictions were mostly offset by over-estimates.
+
+One concern with this model is that it relies on weather data to make predictions. However, when forecasting future energy consumption, the hourly weather data is unknown. This becomes more unclear when considering this model uses principal components as opposed to distinct weather features. In these forecasts, future weather values were assumed to be the average value–over a three hour rolling window for that specific hour, day, and month–of   the principal component over the nearly 20 years of training data. While this adds a level of uncertainty to the model’s predictions, we claim that this will not affect the predictions very much.  Figure C.5 shows that the prediction residuals were nearly identical for this model and a model that excluded weather regressors altogether. In the sans-weather model, the hourly MAPE only rose to 7.78%, and even had a 3-month MAPE of 2.32%, slightly better than our final model.
+
+Another good sign from this model was that its prediction error stayed relatively constant throughout the forecast range (Figure 5). This means that the model can be used with the same confidence for predicting energy consumption 10 days out as it can be predicting 90 days out. One limitation, however, is that the model tends to forecast conservatively when there are large spikes in energy load. Figure C.5 shows that the density of high energy load predictions was smaller than the true frequency of high-load observations.
+
+![](figures/prophet3/prophet3_horizon_mape.png)
+
+**Figure 5:** The absolute percent error of each observation in the 16 cross validation periods, plotted as a function of their time into the future. Observations on the left are predictions closer to the time of forecast, while observations plotted on the right are predictions farther away from the time of estimation. The blue line is the rolling average of the absolute percent errors.
+
+</br>
+
 # Deliverable
 The output for this project is a model that will be used to predict NEPOOL energy usage. This model will forecast the next 1 - 6 months of energy usage in the New England region. 
 
