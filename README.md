@@ -99,6 +99,19 @@ To measure the performance of the model, we compute the mean absolute percent er
 
 where *A<sub>t</sub>* is true load, *F<sub>t</sub>* is forecasted load, and *n* is the size of our test set. The objective is to minimize MAPE on the test set.
 
+## Neural Networks
+
+We implemented two different neural networks; a feed-forward network and a recurrent neural network.
+
+For both the neural networks, we discarded the PCA and fit on the standardized features.  The reason for discarding is from the neural network’s ability to learn patterns from correlated data. The training set available was large enough to optimize the parameters without fear of overfitting from lack of data. Additionally, due to inclusions of dummy variables (described below), its mixture with PCA components produced noticeably worse results that were difficult to resolve. As this model doesn’t require uncorrelated features, we chose to drop the PCA components.
+
+Both the networks are supplied with dummy variables to help them learn the seasonalities of the data.  These dummy variables include hourly, monthly, holiday, and weekend indicator variables.  Overall we retain 45 features to feed into the neural nets.
+
+In constructing the feedforward network, we created 8 dense layers, each decreasing in size. 4 dropout layers are interwoven to prevent overfitting. We used the mean squared error for our loss function as it is a natural loss function (including any Minkowski metric) for regression problems. Additionally, each layer uses a ‘tanh’ activation function, chosen due to its common usage in regression tasks. In our model, we split our training, validation, and testing as the following: after choosing a point in our data set to test forward from, we select the previous year from that point to validate, the previous 2 years from the validation to train, and the upcoming 3 months to test. The points we chose are the first of February, May, August, and November, to test on Spring, Summer, Fall, and Winter, respectively. We cross-validate for an accurate test error by training/validating and testing through multiple years, and obtain an overall MAPE.
+
+Due to computational issues with the cross-validation, only a limited range could be cross-validated at one time. In this paper we obtained cross-validation results from 2011-2012. Due to a memory leak in the Tensorflow code, training of further than 1,000 epochs resulted in a likelihood of a computer crash. For the purposes of tuning this model, these computational limits are debilitating and require to be resolved for proper testing.
+
+A recurrent neural network was also implemented, with properties described in the Results section.
 
 
 # Deliverable
