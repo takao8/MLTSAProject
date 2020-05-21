@@ -183,6 +183,12 @@ While statistically not the most successful model created in this analysis, the 
 This paper is not a statement of the failure of the neural net, but of the room for its improvement.
 
 
+# Future Work
+
+Further work needs to be done to further verify the power of these models.  In particular, we desire two such advancements:
+1. Expand the weather features by testing on forecasted weather or incorporating average weather deviations from their yearly means.  This is desired since we will not have real time weather data when forecasting on future energy.  Overall this will return a more realistic test error with error bands. [15] shows weather measurement error, and [16] shows annual weather deviations for selected stations.
+
+2. Prove transferability by testing our models on load series of different spatial scales.  This is our ultimate goal, since the spatial scale can change extensively between different loads.  Showing the models work just as well on the city scale as on the multi-state scale will be vital in proving the models are powerful for all load forecasting.
 
 
 # Deliverable
