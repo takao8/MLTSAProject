@@ -114,6 +114,19 @@ Due to computational issues with the cross-validation, only a limited range coul
 A recurrent neural network was also implemented, with properties described in the Results section.
 
 
+# Results
+
+## Principal Component Analysis
+
+The principal component analysis revealed that only the first two components were needed to explain nearly 98% of the variance in the weather dataset (Figure B.1). This is very beneficial, as it allowed us to reduce the dimensionality of the dataset from 9 features to 2. This saved hours in the model training / cross-validation step of the analysis.
+
+It is also noteworthy which weather features were most represented in the PCA components. The two components were almost entirely composed of the Dew Point Temperature, Wet Bulb Temperature, Dry Bulb Temperature, and Relative Humidity (Figure 4). This is important, as it tells us precipitation is essentially excluded from our model.
+
+![](figures/pca_weights.png)
+
+**Figure 4:** The bar chart shows the weight attributed to each weather feature for the first two principal components. These components assign most of the weight to the three temperature features and relative humidity.
+
+
 # Deliverable
 The output for this project is a model that will be used to predict NEPOOL energy usage. This model will forecast the next 1 - 6 months of energy usage in the New England region. 
 
