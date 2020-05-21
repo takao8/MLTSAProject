@@ -264,3 +264,8 @@ https://en.wikipedia.org/wiki/Moss_Landing_Power_Plant
 
 **Figure A.7:** Behavior of the energy demand for Nepool around July 4th.  Typically, holidays act identical to weekends, as businesses and industry close down.
 
+## Appendix B: Principal Component Analysis Results
+
+![](figures/pca_explained_variance.png)
+
+**Figure B.1:** The bar chart shows how much of the total variance in the original weather dataset is explained by each principal component. The first two components explain 97.65%, the first three explain 99.70%, and the first six explain 100%.
