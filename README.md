@@ -25,11 +25,11 @@ For our study, we used two models: Facebook’s Prophet (FP), which is based on 
 
 The primary dataset used in this project is the net energy load by source for NEPOOL. This dataset was acquired from the ISO New England website and covers the time interval from January 1st, 2000 to July 29th, 2019, with a cadence of 1 hour for each observation. Figure 1 shows a typical energy demand for the year 2015. The other relevant feature in this dataset is the Heat Index (HI) [12], which combines historical temperature and humidity data at Boston Logan International Airport, measured in degrees celsius. Figure 2 shows the correlation between load and HI in Boston for the period between 2000 and 2019. The graph shows two populations during the winter months, which merge into one as  the HI increases. As expected, load increases as the HI increases (decreases) from the global minima point as people turn on their cooling (heating) systems.
 
-![energy demand for 2015](figures/energy_demand_2015.png)
+![energy demand for 2015](figures/data_exploration/energy_demand_2015.png)
 
 **Figure 1:** A time series sample of Energy demand for year 2015 for the New England area.
 
-![snapshot of nepool.describe()](figures/nepool_data_description.png)
+![snapshot of nepool.describe()](figures/data_exploration/nepool_data_description.png)
 
 **Table 2:** Snapshot of `nepool.describe()`
 
@@ -45,13 +45,13 @@ The second dataset includes historical weather data for the Boston area. This da
 
 Due to limits on the size of datasets that can be ordered at a time, two separate datasets were requested and then concatenated together. The resulting dataset contained many different attributes relating to the hourly weather conditions over the time period covered by the NEPOOL dataset.
 
-![Correlation between energy consumption and Heat Index of Boston for the period between 2001-02-21and 2002-04-13](figures/hid_energy_usage.png)
+![Correlation between energy consumption and Heat Index of Boston for the period between 2001-02-21and 2002-04-13](figures/data_exploration/hid_energy_usage.png)
 
 **Figure 2:** Contour plot between energy consumption and Heat Index of Boston for 2000-2019.  Although showing evidence of two populations in the winter, they merge into one in the summer, dissuading the possibility of disjoint populations.
 
 
 
-![Snapshot of weather_noaa.describe()](figures/noaa_data_description.png)
+![Snapshot of weather_noaa.describe()](figures/data_exploration/noaa_data_description.png)
 
 **Table 2:** Snapshot of `weather_noaa.describe()`
 
@@ -82,7 +82,7 @@ An initial exploration of the NEPOOL dataset suggests the presence of three sign
 
 These seasonalities have been considered in the model by implementing the specified seasonalities in the Prophet implementation.
 
-![](figures/daily_trend_heatmap.png)
+![](figures/data_exploration/daily_trend_heatmap.png)
 
 **Figure 3:** Heatmap showing weekly averages of daily energy load from 2016-2018.  In this figure, the summer and winter seasonalities are clearly shown.  Note the smooth transition of daily seasonalities between summer and winter.
 
@@ -122,7 +122,7 @@ The principal component analysis revealed that only the first two components wer
 
 It is also noteworthy which weather features were most represented in the PCA components. The two components were almost entirely composed of the Dew Point Temperature, Wet Bulb Temperature, Dry Bulb Temperature, and Relative Humidity (Figure 4). This is important, as it tells us precipitation is essentially excluded from our model.
 
-![](figures/pca_weights.png)
+![](figures/pca/pca_weights.png)
 
 **Figure 4:** The bar chart shows the weight attributed to each weather feature for the first two principal components. These components assign most of the weight to the three temperature features and relative humidity.
 
@@ -156,7 +156,7 @@ Another good sign from this model was that its prediction error stayed relativel
 
 An analysis of the feedforward neural network’s output shows promise but fundamental errors in its predictive power. Viewing the residual plot in Figure 6 shows the nature of the issue–although producing a favorable MAPE, an instability emerges in the MAPE rolling average. This portrays an inconsistency in the accuracy. Overall, the model returned an hourly MAPE of 9.12% over 3 months.
 
-![](figures/ff_horizon_mape.png)
+![](figures/ffnn/ff_horizon_mape.png)
 
 **Figure 6:** The absolute percent error of each observation over a timespan of 2 years with the feedforward neural network model, similar to Figure 5.  
 
@@ -232,41 +232,41 @@ https://en.wikipedia.org/wiki/Moss_Landing_Power_Plant
 
 ## Appendix A: Data Exploration Figures
 
-![](figures/year_seasonal_load_scatter_v6.png)
+![](figures/data_exploration/year_seasonal_load_scatter_v6.png)
 
 **Figure A.1:** An overview of load corresponding to 19 years data we used in the project. Energy consumption is usually higher in winter and summer compared to the other two seasons. Summer though exhibits a slightly different behaviour compared to other seasons as the peaks are much sharper and the total load is also significantly higher than winter resulting in higher variance of the data which might help explain the higher error in load prediction as reported in  Results. Bottom panel shows the same data though with rolling mean for a period of around 4 days. Please note the paucity of data in the initial years, specially upto 2006 which gives an impression of varying 𝞪 (transparency parameter) while plotting. This is only because of missing data though cadence is the same as any other period.
 
-![](figures/Week_days_ends_v4.png)
+![](figures/data_exploration/Week_days_ends_v4.png)
 
 **Figure A.2 :** Plot of Boston heat index and energy consumption for the New England area. Blue dots correspond to weekdays whereas red dots correspond to weekends. Energy consumption during the weekend is slightly lower than those during weekdays for all seasons. The difference of average energy consumption (shown by green dots) during weekdays and weekends is always positive and shows a log-linear relation with heat index. Please note the vertical stripe like feature of the data points is the consequence of digitization of data as heat index is recorded only as integers.
 
 
-![](figures/psd_v4.png)
+![](figures/data_exploration/psd_v4.png)
 
 **Figure A.3:** Power spectral density of load during different seasons for the New England area. The figure shows peaks along expected periods of 24 Hrs (dotted green line) and a small broad peak centered around frequency corresponding to 7 days (dash-dot black line). Broadness of the peak at week long frequency can be attributed to the drop in power consumption over weekends as compared to a weekday. There are other peaks present at frequency corresponding to 8 hr, which relates to the usual 8 hr long office hours in the corporate sector.
 
-![](figures/daily_summer.png)
+![](figures/data_exploration/daily_summer.png)
 
 **Figure A.4:** Ensemble of daily oscillations in the month of July of the energy demand data for 9 years.  Daily oscillations in the summer are distinguishable from the winter by their single hump--a steady increase through the day, peaking around 5PM, then steadily decreasing into the night.
 
 
-![](figures/daily_winter.png)
+![](figures/data_exploration/daily_winter.png)
 
 **Figure A.5:** Similar to figure A.4, except during the winter.  Note that the daily oscillations are now defined by a double hump: an increase through the early hours of the day, slightly decreasing until 3PM, then spiking sharply at 7PM until decreasing through the night.
 
 
-![](figures/weekly_seasonality.png)
+![](figures/data_exploration/weekly_seasonality.png)
 
 **Figure A.6:** Behavior of energy demand in May over 19 years of data.  Energy demand over the weekends tends to be lower due to industry and commercial buildings shutting down.  Therefore, a typical weekly oscillation will show energy demand higher during the weekdays and lower in the weekends.  Although there are exceptions to this behavior, the average, as shown in the dotted black line, illustrates this trend to be true.
 
 
-![](figures/holiday_seasonality.png)
+![](figures/data_exploration/holiday_seasonality.png)
 
 **Figure A.7:** Behavior of the energy demand for Nepool around July 4th.  Typically, holidays act identical to weekends, as businesses and industry close down.
 
 ## Appendix B: Principal Component Analysis Results
 
-![](figures/pca_explained_variance.png)
+![](figures/pca/pca_explained_variance.png)
 
 **Figure B.1:** The bar chart shows how much of the total variance in the original weather dataset is explained by each principal component. The first two components explain 97.65%, the first three explain 99.70%, and the first six explain 100%.
 
@@ -288,7 +288,7 @@ https://en.wikipedia.org/wiki/Moss_Landing_Power_Plant
 
 ![](figures/prophet3/residuals3_hist.png)
 
-![](figures/prophet3/residuals3_compare.png)
+![](figures/prophet3/residuals13_hist.png)
 
 **Figure C.4:** A histogram of the residuals using the model (left), and a histogram comparing the residuals of the main model with a model that does not consider the weather features in its prediction-making (right). The distributions are both well-behaved and nearly identical. Note that 24 MWh is smaller than 0.2% of the mean hourly energy load.
 
