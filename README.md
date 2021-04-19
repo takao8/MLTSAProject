@@ -152,7 +152,7 @@ Another good sign from this model was that its prediction error stayed relativel
 </br>
 
 
-## Feefforward Neural Network
+## Feedforward Neural Network
 
 An analysis of the feedforward neural network’s output shows promise but fundamental errors in its predictive power. Viewing the residual plot in Figure 6 shows the nature of the issue–although producing a favorable MAPE, an instability emerges in the MAPE rolling average. This portrays an inconsistency in the accuracy. Overall, the model returned an hourly MAPE of 9.12% over 3 months.
 
